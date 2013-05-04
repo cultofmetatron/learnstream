@@ -16,8 +16,7 @@
     "async"     : "*",
     "q"         : "*",
     "express-partials": "*",
-    "express-singly": "*",
-
+    "express-singly": "*"
   }
 }
 
