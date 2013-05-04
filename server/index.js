@@ -3,7 +3,7 @@ var http = require('http');
 var path = require('path');
 //var stream = require('stream');
 var querystring = require('querystring');
-var Q    = require('q');
+var Q = require('q');
 var everyauth = require('everyauth');
 var helpers = require('./helpers');
 var lessMiddleware = require('less-Middleware');
@@ -12,9 +12,9 @@ module.exports = function(configs) {
   var app = express();
   everyauth.debug = true;
   var expressSingly = require('express-singly')(app,
-      configs.singly.clientId,
-      configs.singly.clientSecret,
-      hostBaseUrl, hostBaseUrl + '/callback');
+    configs.singly.clientId,
+    configs.singly.clientSecret,
+    hostBaseUrl, hostBaseUrl + '/callback');
 
   var fireUrl = 'https://realstateappointments.firebaseIO.com/';
   var Firebase = require('firebase');
@@ -42,23 +42,10 @@ module.exports = function(configs) {
   app.use(app.router);
   expressSingly.routes();
 
-
   if ('development' == app.get('env')) {
     app.use(express.errorHandler());
   }
 
   app = require('./routes.js')(app);
-
-
   return app;
 };
-
-
-
-
-
-
-
-
-
-
