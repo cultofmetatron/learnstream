@@ -18,7 +18,10 @@
     "browserify" : "*",
     "express-partials": "*",
     "express-singly": "*",
-    "browserify-middleware" : "*"
+    "browserify-middleware" : "*",
+    "backbone" : "*",
+    "underscore" : "*"
+
   }
 }
 
