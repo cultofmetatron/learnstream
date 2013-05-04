@@ -15,12 +15,8 @@
     "firebase"  : "*",
     "async"     : "*",
     "q"         : "*",
-    "browserify" : "*",
     "express-partials": "*",
     "express-singly": "*",
-    "browserify-middleware" : "*",
-    "backbone" : "*",
-    "underscore" : "*"
 
   }
 }

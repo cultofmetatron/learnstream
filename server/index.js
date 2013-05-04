@@ -7,7 +7,7 @@ var Q    = require('q');
 var everyauth = require('everyauth');
 var helpers = require('./helpers');
 var browserify = require('browserify-middleware');
-
+var lessMiddleware = require('less-Middleware');
 module.exports = function(configs) {
   var app = express();
   everyauth.debug = true;
@@ -25,10 +25,6 @@ module.exports = function(configs) {
 
   app.set('port', process.env.PORT || 3000);
   app.set('views');
-  app.use(lessMiddleware({
-    src: path.join(configs.rootDir , 'less',
-    compress: true
-  }));
   app.set(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
