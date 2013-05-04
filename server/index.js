@@ -1,14 +1,14 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-//var stream = require('stream');
 var querystring = require('querystring');
 var Q = require('q');
 var everyauth = require('everyauth');
 var helpers = require('./helpers');
 var lessMiddleware = require('less-Middleware');
+
 module.exports = function(configs) {
-  var hostBaseUrl = '127.0.0.1:3000'
+  var hostBaseUrl = '127.0.0.1:3000';
   var app = express();
   everyauth.debug = true;
   var expressSingly = require('express-singly')(app,
