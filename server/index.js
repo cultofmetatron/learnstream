@@ -25,7 +25,10 @@ module.exports = function(configs) {
 
   app.set('port', process.env.PORT || 3000);
   app.set('views');
-
+  app.use(lessMiddleware({
+    src: path.join(configs.rootDir , 'less',
+    compress: true
+  }));
   app.set(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
