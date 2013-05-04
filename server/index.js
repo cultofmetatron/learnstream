@@ -6,6 +6,8 @@ var querystring = require('querystring');
 var Q    = require('q');
 var everyauth = require('everyauth');
 var helpers = require('./helpers');
+var browserify = require('browserify-middleware');
+
 module.exports = function(configs) {
   var app = express();
   everyauth.debug = true;
@@ -33,6 +35,7 @@ module.exports = function(configs) {
   app.use(everyauth.middleware(app));
   app.use(helpers.allowCrossDomain);
   app.use(express.static(path.join(configs.rootDir, 'public')));
+  app.use('/js', browserify(path.join(configs.rootDir, 'scripts')) );
   app.use(app.router);
 
   if ('development' == app.get('env')) {

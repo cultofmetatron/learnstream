@@ -15,7 +15,10 @@
     "firebase"  : "*",
     "async"     : "*",
     "q"         : "*",
-    "browserify" : "*"
+    "browserify" : "*",
+    "express-partials": "*",
+    "express-singly": "*",
+    "browserify-middleware" : "*"
   }
 }
 
