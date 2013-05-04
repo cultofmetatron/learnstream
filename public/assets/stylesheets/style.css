@@ -1,0 +1,21 @@
+/* Splash Page */
+
+.header {
+  text-align: left;
+}
+
+.header h3 {
+  letter-spacing: 3px;
+}
+
+.header img {
+  margin-right: 0.4em;
+  position: relative;
+  top: 0.2em;
+}
+
+.topBar {
+  background-color: #2c3747;
+  text-align: center;
+  margin: 0 auto;
+}
