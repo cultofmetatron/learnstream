@@ -9,6 +9,7 @@
     "express": "3.2.0",
     "connect" : "*",
     "hjs": "*",
+    "ejs": "*",
     "less-middleware": "*",
     "hbs" : "*",
     "everyauth" : "https://github.com/bnoguchi/everyauth/archive/express3.tar.gz",

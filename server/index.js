@@ -6,11 +6,15 @@ var querystring = require('querystring');
 var Q    = require('q');
 var everyauth = require('everyauth');
 var helpers = require('./helpers');
-var browserify = require('browserify-middleware');
 var lessMiddleware = require('less-Middleware');
 module.exports = function(configs) {
+  var hostBaseUrl = '127.0.0.1:3000'
   var app = express();
   everyauth.debug = true;
+  var expressSingly = require('express-singly')(app,
+      configs.singly.clientId,
+      configs.singly.clientSecret,
+      hostBaseUrl, hostBaseUrl + '/callback');
 
   var fireUrl = 'https://realstateappointments.firebaseIO.com/';
   var Firebase = require('firebase');
@@ -23,7 +27,8 @@ module.exports = function(configs) {
   Models.Root.set('learnstream');
 
   app.set('port', process.env.PORT || 3000);
-  app.set('views');
+  app.set('views', path.join(configs.rootDir, 'public'));
+  app.set('view engine', 'ejs');
   app.set(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -33,8 +38,10 @@ module.exports = function(configs) {
   app.use(everyauth.middleware(app));
   app.use(helpers.allowCrossDomain);
   app.use(express.static(path.join(configs.rootDir, 'public')));
-  app.use('/js', browserify(path.join(configs.rootDir, 'scripts')) );
+  expressSingly.configuration();
   app.use(app.router);
+  expressSingly.routes();
+
 
   if ('development' == app.get('env')) {
     app.use(express.errorHandler());
