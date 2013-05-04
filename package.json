@@ -14,7 +14,8 @@
     "everyauth" : "https://github.com/bnoguchi/everyauth/archive/express3.tar.gz",
     "firebase"  : "*",
     "async"     : "*",
-    "q"         : "*"
+    "q"         : "*",
+    "browserify" : "*"
   }
 }
 
