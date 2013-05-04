@@ -5,7 +5,6 @@ var querystring = require('querystring');
 var Q = require('q');
 var everyauth = require('everyauth');
 var helpers = require('./helpers');
-var lessMiddleware = require('less-Middleware');
 
 module.exports = function(configs) {
   var hostBaseUrl = 'http://localhost:3000';
@@ -36,7 +35,7 @@ module.exports = function(configs) {
   app.use(express.session());
   app.use(express.methodOverride());
   app.use(everyauth.middleware(app));
-  app.use(helpers.allowCrossDomain);
+  app.use(helpers.allowCrossDomain); //fixes cors bullshit
   app.use(express.static(path.join(configs.rootDir, 'public')));
   expressSingly.configuration();
   app.use(app.router);
