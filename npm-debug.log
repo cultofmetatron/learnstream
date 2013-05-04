@@ -1,0 +1,32 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.10.4/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@1.2.18
+3 info using node@v0.10.4
+4 verbose read json /Users/Cultofmetatron/projects/hackstackv2/package.json
+5 warn package.json hackstack@0.0.1 No README.md file found!
+6 verbose run-script [ 'prestart', 'start', 'poststart' ]
+7 info prestart hackstack@0.0.1
+8 info start hackstack@0.0.1
+9 verbose unsafe-perm in lifecycle true
+10 silly exec sh "-c" "node index.js"
+11 silly sh,-c,node index.js,/Users/Cultofmetatron/projects/hackstackv2 spawning
+12 info hackstack@0.0.1 Failed to exec start script
+13 error hackstack@0.0.1 start: `node index.js`
+13 error `sh "-c" "node index.js"` failed with 8
+14 error Failed at the hackstack@0.0.1 start script.
+14 error This is most likely a problem with the hackstack package,
+14 error not with npm itself.
+14 error Tell the author that this fails on your system:
+14 error     node index.js
+14 error You can get their info via:
+14 error     npm owner ls hackstack
+14 error There is likely additional logging output above.
+15 error System Darwin 11.4.2
+16 error command "/usr/local/Cellar/node/0.10.4/bin/node" "/usr/local/bin/npm" "start"
+17 error cwd /Users/Cultofmetatron/projects/hackstackv2
+18 error node -v v0.10.4
+19 error npm -v 1.2.18
+20 error code ELIFECYCLE
+21 verbose exit [ 1, true ]

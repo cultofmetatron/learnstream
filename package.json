@@ -1,0 +1,20 @@
+{
+  "name": "hackstack",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "3.2.0",
+    "connect" : "*",
+    "hjs": "*",
+    "less-middleware": "*",
+    "hbs" : "*",
+    "everyauth" : "https://github.com/bnoguchi/everyauth/archive/express3.tar.gz",
+    "firebase"  : "*",
+    "async"     : "*",
+    "q"         : "*"
+  }
+}
+
