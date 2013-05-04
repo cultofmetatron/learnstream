@@ -18,6 +18,10 @@ module.exports = (function() {
     },
     firebase : {
       authToken : "37wVWYL41MBAB6weDlkLiEDgYyZCWdEw3rZiF7L0"
+    },
+    singly : {
+      clientId     : "663851f217fe79259e19bf3b1f8bc164",
+      clientSecret : "bb4973ed7df05fbd524de9fef1b6a5eb"
     }
   };
 }).call(this);
