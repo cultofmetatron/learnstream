@@ -8,7 +8,7 @@ var helpers = require('./helpers');
 var lessMiddleware = require('less-Middleware');
 
 module.exports = function(configs) {
-  var hostBaseUrl = '127.0.0.1:3000';
+  var hostBaseUrl = 'http://localhost:3000';
   var app = express();
   everyauth.debug = true;
   var expressSingly = require('express-singly')(app,
