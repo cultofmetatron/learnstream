@@ -20,8 +20,7 @@ module.exports = function(configs) {
     User : require('./models/user.js')(new Firebase(fireUrl + 'users'), everyauth)
   };
 
-  Models.Root.set('realestater');
-
+  Models.Root.set('learnstream');
 
   app.set('port', process.env.PORT || 3000);
   app.set('views');

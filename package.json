@@ -16,7 +16,13 @@
     "async"     : "*",
     "q"         : "*",
     "express-partials": "*",
+<<<<<<< HEAD
     "express-singly": "*"
+=======
+    "express-singly": "*",
+    "opentok" : "0.3.x"
+
+>>>>>>> cab27f6ef26f98623ac62b22b76a8099745623af
   }
 }
 
