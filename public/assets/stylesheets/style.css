@@ -19,3 +19,30 @@
   text-align: center;
   margin: 0 auto;
 }
+
+.needHelp, .hereToHelp {
+  background-color: rgba(10, 10, 10, 0.5);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-top: 2em;
+  text-align: center;
+}
+
+input {
+  margin-bottom: 2em;
+}
+
+.littleNote {
+  color: #ccc;
+  font-size: 0.6em;
+  letter-spacing: 2px;
+  text-align: left;
+  margin: 0 !important;
+  padding-top: 0.2em;
+  padding-left: 0.2em;
+}
+
+.descProb, #helpTags {
+  margin-bottom: 0 !important;
+}

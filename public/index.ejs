@@ -12,22 +12,46 @@
     <link rel="stylesheet" href="/assets/stylesheets/foundation.css" />
     <link rel="stylesheet" href="/assets/stylesheets/bg.css" />
     <link rel="stylesheet" href="/assets/stylesheets/style.css" />
-    <script src="assets/javascripts/vendor/custom.modernizr.js"></script>
 
+    <script src="/assets/javascripts/vendor/custom.modernizr.js"></script>
     <script src="/javascripts/vendor/underscore.js"></script>
     <script src="/javascripts/vendor/backbone.js"></script>
     <script src="/javascripts/vendor/backbone-firebase.js"></script>
     <script src="/javascripts/singlyauth.js"></script>
   </head>
-  <script>
-   var accessToken = '<%= session.accessToken %>';
-  </script>
+  <script>var accessToken = '<%= session.accessToken %>';</script>
 
   <body>
     <div class="topBar">
       <div class="header row">
         <h3 class="large-6 columns"><img src="/assets/images/icon.png" />Learnstream</h3>
       </div>
+    </div>
+
+    <div class="content row">
+
+      <div class="needHelp small-5 large-5 columns">
+        <h2>Need help?</h2>
+        <!-- <form action="/tickets" method="POST"> -->
+        <form>
+          <input name="desc" autofocus required type="text" placeholder="Describe your problem." maxlength="160" class="descProb" />
+          <p class="littleNote">*160 character limit</p>
+          <br /><input name="tags" required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="helpTags" />
+          <p class="littleNote">*Comma-seperate tags</p>
+          <br /><a href="./code-session.html"><input type="submit" value="Start Streaming" class="small success button" /></a>
+        </form>
+      </div>
+
+      <div class="hereToHelp small-5 large-5 small-offset-2 large-offset-2 columns">
+        <h2>Here to help?</h2>
+        <form>
+          <h5>Set a list of tags to listen for:</h5>
+          <br /><input required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="helpTags" />
+          <p class="littleNote">*Comma-seperate tags</p>
+          <br /><input type="submit" value="Mentor Someone" class="small success button" />
+        </form>
+      </div>
+
     </div>
 
     <ul id="auth">
@@ -48,5 +72,15 @@
 <div id="profiles"></div>
 <div id="statuses"></div>
 
+    <script>
+    document.write('<script src=' +
+    ('__proto__' in {} ? '/assets/javascripts/vendor/zepto' : '/assets/javascripts/vendor/jquery') +
+    '.js><\/script>')
+    </script>
+
+    <script src="/assets/javascripts/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
