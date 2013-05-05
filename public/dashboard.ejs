@@ -22,7 +22,6 @@
     <script src="/assets/javascripts/vendor/backbone-firebase.js"></script>
     <script src="/assets/javascripts/singlyauth.js"></script>
 
-    <script src="/assets/javascripts/vendor/textboxlist/mootools-min-121.js"></script>
     <script src="/assets/javascripts/vendor/textboxlist/growingInput.js"></script>
     <script src="/assets/javascripts/vendor/textboxlist/textboxList.js"></script>
     <script src="/assets/javascripts/vendor/textboxlist/textboxListAuto.js"></script>
@@ -50,9 +49,9 @@
         <form>
           <input name="desc" autofocus required type="text" placeholder="Describe your problem." maxlength="160" class="descProb" />
           <p class="littleNote">*160 character limit</p>
-          <br /><input name="tags" required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="form_tags_input" class="textboxlist-bit-editable-input" />
+          <br /><input name="tags" required type="text" id="helpTags" />
           <p class="littleNote">*Comma-seperate tags</p>
-          <br /><a href="./code-session.html"><input type="submit" value="Start Streaming" class="small success button" /></a>
+          <br /><a href="#"><input type="submit" value="Start Streaming" class="small success button" /></a>
         </form>
       </div>
 
@@ -74,13 +73,6 @@
       <li><%- authorizationLink('google', 'Google') %></li>
       <li><%- authorizationLink('twitter', 'Twitter') %></li>
     </ul>
-
-<div id="access-token-wrapper">
- <p style="width: 40%;">Access token for making API direct calls: <input type="text" id="access-token" /></p>
-</div>
-
-<div id="profiles"></div>
-<div id="statuses"></div>
 
     <script>
     document.write('<script src=' +
