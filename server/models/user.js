@@ -4,5 +4,5 @@ module.exports = function(firebaseAccess) {
 
 
 
-
+  return firebaseUser;
 };

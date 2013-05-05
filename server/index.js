@@ -27,7 +27,8 @@ module.exports = function(configs) {
 
   Models = {
     Root : new Firebase(fireUrl),
-    User : require('./models/user.js')(new Firebase(fireUrl + 'users'), everyauth)
+    User : require('./models/user.js')(new Firebase(fireUrl + 'users')),
+    Question : require('./models/question.js')(new Firebase(fireUrl + 'question'))
   };
 
   Models.Root.set('learnstream');
