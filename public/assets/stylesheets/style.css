@@ -47,6 +47,10 @@ input {
   margin-bottom: 0 !important;
 }
 
+#form_tags_input {
+  margin-bottom: 0;
+}
+
 /* Code Session */
 
 /*.codeSession {

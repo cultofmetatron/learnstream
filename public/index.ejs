@@ -13,11 +13,22 @@
     <link rel="stylesheet" href="/assets/stylesheets/bg.css" />
     <link rel="stylesheet" href="/assets/stylesheets/style.css" />
 
+    <link rel="stylesheet" href="/assets/stylesheets/textboxList.css" />
+    <link rel="stylesheet" href="/assets/stylesheets/textboxListAuto.css" />
+
     <script src="/assets/javascripts/vendor/custom.modernizr.js"></script>
-    <script src="/javascripts/vendor/underscore.js"></script>
-    <script src="/javascripts/vendor/backbone.js"></script>
-    <script src="/javascripts/vendor/backbone-firebase.js"></script>
-    <script src="/javascripts/singlyauth.js"></script>
+    <script src="/assets/javascripts/vendor/underscore.js"></script>
+    <script src="/assets/javascripts/vendor/backbone.js"></script>
+    <script src="/assets/javascripts/vendor/backbone-firebase.js"></script>
+    <script src="/assets/javascripts/singlyauth.js"></script>
+
+    <script src="/assets/javascripts/vendor/textboxlist/mootools-min-121.js"></script>
+    <script src="/assets/javascripts/vendor/textboxlist/growingInput.js"></script>
+    <script src="/assets/javascripts/vendor/textboxlist/textboxList.js"></script>
+    <script src="/assets/javascripts/vendor/textboxlist/textboxListAuto.js"></script>
+    <script src="/assets/javascripts/vendor/textboxlist/textboxListAutoBin.js"></script>
+    <script src="/assets/javascripts/tbListConfig.js"></script>
+
   </head>
   <script>var accessToken = '<%= session.accessToken %>';</script>
 
@@ -36,7 +47,7 @@
         <form>
           <input name="desc" autofocus required type="text" placeholder="Describe your problem." maxlength="160" class="descProb" />
           <p class="littleNote">*160 character limit</p>
-          <br /><input name="tags" required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="helpTags" />
+          <br /><input name="tags" required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="form_tags_input" />
           <p class="littleNote">*Comma-seperate tags</p>
           <br /><a href="./code-session.html"><input type="submit" value="Start Streaming" class="small success button" /></a>
         </form>
@@ -46,7 +57,7 @@
         <h2>Here to help?</h2>
         <form>
           <h5>Set a list of tags to listen for:</h5>
-          <br /><input required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="helpTags" />
+          <br /><input name="tags" required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="form_tags_input" />
           <p class="littleNote">*Comma-seperate tags</p>
           <br /><input type="submit" value="Mentor Someone" class="small success button" />
         </form>
@@ -60,10 +71,6 @@
       <li><%- authorizationLink('google', 'Google') %></li>
       <li><%- authorizationLink('twitter', 'Twitter') %></li>
     </ul>
-
-<div id="empowered">
- <a href="https://singly.com/"><img src="/assets/images/favicon.png" /></a>
-</div>
 
 <div id="access-token-wrapper">
  <p style="width: 40%;">Access token for making API direct calls: <input type="text" id="access-token" /></p>
