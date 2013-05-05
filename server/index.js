@@ -6,6 +6,10 @@ var Q = require('q');
 var everyauth = require('everyauth');
 var helpers = require('./helpers');
 
+var __ = require('underscore');
+
+
+
 module.exports = function(configs) {
   var hostBaseUrl = 'http://localhost:3000';
   var app = express();
@@ -36,6 +40,12 @@ module.exports = function(configs) {
   app.use(express.methodOverride());
   app.use(everyauth.middleware(app));
   app.use(helpers.allowCrossDomain); //fixes cors bullshit
+  app.use(function(req, res, next) {
+    if (req.session.accessToken ) {
+      req.session.firebaseUrl = fireUrl;
+    }
+    next();
+  });
   app.use(express.static(path.join(configs.rootDir, 'public')));
   expressSingly.configuration();
   app.use(app.router);

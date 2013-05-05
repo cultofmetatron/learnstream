@@ -19,7 +19,10 @@
     <script src="/javascripts/vendor/backbone-firebase.js"></script>
     <script src="/javascripts/singlyauth.js"></script>
   </head>
-  <script>var accessToken = '<%= session.accessToken %>';</script>
+  <script>
+    var accessToken = '<%= session.accessToken %>';
+    var firebaseUrl = '<%= session.fireBase %>';
+  </script>
 
   <body>
     <div class="topBar">
