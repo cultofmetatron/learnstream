@@ -55,6 +55,6 @@ module.exports = function(configs) {
     app.use(express.errorHandler());
   }
 
-  app = require('./routes.js')(app, Models, openTok);
+  app = require('./routes.js')(app, Models, openTok, fireUrl);
   return app;
 };
