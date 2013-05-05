@@ -47,10 +47,9 @@
       $.ajax({
         url: githubReqUrl,
         success: function(data) {
-          var userName = data['0']['data']['name'].split(' ')[0];
+          var userName = data['0']['data']['name'];
           var image = data['0']['data']['avatar_url'];
-          $('.userInfo').text(userName + '.').append("<img src=" + image + " width='48' height='48' class='avatar' />");
-          console.log(userName);
+          $('.userInfo').text(userName).append("<img src=" + image + " width='42' height='42' class='avatar' />");
         }
       });
     });
@@ -67,7 +66,7 @@
     <div class="topBar">
       <div class="header row">
         <h3 class="small-6 large-6 columns"><img src="/assets/images/icon.png" />Learnstream</h3>
-        <a href="#" class="login small-6 large-6 columns">Hi, <span class="userInfo"></span></a>
+        <a href="#" class="login small-6 large-6 columns"><span class="userInfo"></span></a>
       </div>
     </div>
 

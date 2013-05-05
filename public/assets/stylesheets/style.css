@@ -1,11 +1,40 @@
 /* Splash Page */
 
 .header {
+  margin-top: 1.6em;
   text-align: left;
 }
 
 .header h3, .loginLinks h3, .loginLinks h4 {
   letter-spacing: 3px;
+}
+
+@media screen and (max-width: 465px) {
+  .header h3 {
+    letter-spacing: 2px;
+    font-size: 1em;
+    position: relative;
+    bottom: 0.3em;
+  }
+
+  .header h3 img {
+    position: relative;
+    top: 0.3em;
+    height: 24px;
+    width: 24px;
+  }
+
+  span.userInfo {
+    position: relative;
+    top: 0 !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  span.userInfo {
+    position: relative;
+    top: 0.5em !important;
+  }
 }
 
 .header img, .loginLinks img {
@@ -56,21 +85,33 @@ input {
 }
 
 .login {
+  /* name and avatar (upper right) */
   text-align: right;
-  line-height: 3.5;
-  margin: 0.3em 0;
 }
 
 span.check {
+  /* Hides checkmark that appears beside 
+  Singly log in icons, after logging in */
   display: none;
 }
 
 .mediaIcon {
+  /* On index.erb page */
+  /* e.g., Fb, Ghub, Twitter, Yammer */
   margin: 0 1em;
 }
 
 .avatar {
-  margin: 0 0 0 1em !important;
+  /* the avatar photo itself */
+  border: 1px solid #333;
+  margin: 0 0 0 0.5em !important;
+  top: 0 !important;
+  vertical-align: middle;
+}
+
+span.userInfo {
+  position: relative;
+  top: 0.3em;
 }
 
 /* Code Session */
