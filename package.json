@@ -18,7 +18,10 @@
     "q"         : "*",
     "express-partials": "*",
     "express-singly": "*",
-    "opentok" : "0.3.x"
+    "opentok" : "0.3.x",
+    "underscore" : "*",
+    "backbone"   : "*"
+
   }
 }
 
