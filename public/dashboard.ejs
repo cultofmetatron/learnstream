@@ -15,6 +15,12 @@
 
     <link rel="stylesheet" href="/assets/stylesheets/textboxList.css" />
     <link rel="stylesheet" href="/assets/stylesheets/textboxListAuto.css" />
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.js"></script>
+    <script>
+      // document.write('<script src=' +
+      // ('__proto__' in {} ? '/assets/javascripts/vendor/zepto' : '/assets/javascripts/vendor/jquery') +
+      // '.js><\/script>')
+    </script>
 
     <script src="/assets/javascripts/vendor/custom.modernizr.js"></script>
     <script src="/assets/javascripts/vendor/underscore.js"></script>
@@ -45,8 +51,7 @@
 
       <div class="needHelp small-5 large-5 columns">
         <h2>Need help?</h2>
-        <!-- <form action="/tickets" method="POST"> -->
-        <form>
+        <form action="/question" method="POST">
           <input name="desc" autofocus required type="text" placeholder="Describe your problem." maxlength="160" class="descProb" />
           <p class="littleNote">*160 character limit</p>
           <br /><input name="tags" required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="helpTags" />
@@ -59,7 +64,7 @@
         <h2>Here to help?</h2>
         <form>
           <h5>Set a list of tags to listen for:</h5>
-          <br /><input name="tags" required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="helpTags" />
+          <br /><input name="tags" required type="text" placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" id="helpTagsMentor" />
           <p class="littleNote">*Comma-seperate tags</p>
           <br /><input type="submit" value="Mentor Someone" class="small success button" />
         </form>
@@ -73,12 +78,6 @@
       <li><%- authorizationLink('google', 'Google') %></li>
       <li><%- authorizationLink('twitter', 'Twitter') %></li>
     </ul>
-
-    <script>
-    document.write('<script src=' +
-    ('__proto__' in {} ? '/assets/javascripts/vendor/zepto' : '/assets/javascripts/vendor/jquery') +
-    '.js><\/script>')
-    </script>
 
     <script src="/assets/javascripts/foundation.min.js"></script>
     <script>
