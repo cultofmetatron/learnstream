@@ -23,26 +23,20 @@ module.exports = function(app, Models, openTok) {
     openTok.createSession(location, {'p2p.preference':'enabled'}, function(result) {
       var question = Models.Question.createQuestion({
       profile_id: req.profile.id,
-      desc      : desc,
-      tags      : tags,
+      desc         : desc,
+      tags         : tags,
       openTok_sess : result
       });
     });
-        // create a room
-
-
-
+    // create a room
     res.redirect('/dashboard');
-
   });
 
   app.get('/questions', helpers.isLoggedIn, function(req, res) {
     res.render('questions', {
       session: req.session
     });
-
   });
-
 
   app.get('/', function(req, res) {
     if (req.session.accessToken) {
@@ -53,7 +47,5 @@ module.exports = function(app, Models, openTok) {
       });
     }
   });
-
   return app;
-
 };

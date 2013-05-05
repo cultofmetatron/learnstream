@@ -1,7 +1,6 @@
 //load the stream of questions
 (function() {
   //rooms models
-
   window.Question = Backbone.Model.extend({
     defaults: function() {
       return {
@@ -13,20 +12,15 @@
       //initialization code
       if (!this.get('desc')) {
         this.set({'title':this.defaults().title });
-
       }
     }
-
   });
 
   window.Tag = Backbone.Model.extend({
     defaults: function() {
       return {
-
-
       };
     }
-
   });
 
   window.Questions = Backbone.Firebase.Collection.extend({
@@ -39,8 +33,6 @@
     tagName: 'li',
     template: Handlebars.compile($('#question-item').html().trim()),
     events: {
-
-
     },
     initialize: function() {
       this.listenTo(this.model, 'change', this.render);
@@ -50,8 +42,6 @@
       this.$el.attr('id', this.model.id);
       return this.$el.html(this.template(this.model.toJSON()));
     }
-
-
   });
 
   window.QuestionsView = Backbone.View.extend({
@@ -79,15 +69,6 @@
     questions.fetch();
     questionsView.render();
     $('#question-list').append(questionsView.el);
-
   setInterval(reloadTasks, 5000);
  });
-
 }).call(this);
-
-
-
-
-
-
-

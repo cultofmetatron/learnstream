@@ -69,6 +69,10 @@ span.check {
   margin: 0 1em;
 }
 
+.avatar {
+  margin: 0 0 0 1em !important;
+}
+
 /* Code Session */
 
 /*.codeSession {

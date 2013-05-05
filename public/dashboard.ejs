@@ -42,21 +42,32 @@
   <script>
     var accessToken = '<%= session.accessToken %>';
     var firebaseUrl = '<%= session.fireBase %>';
+    var githubReqUrl =  'https://api.singly.com/services/github/self?access_token=' + accessToken;
+    $(document).ready(function() {
+      $.ajax({
+        url: githubReqUrl,
+        success: function(data) {
+          var userName = data['0']['data']['name'];
+          var image = data['0']['data']['avatar_url'];
+          $('.userInfo').text(userName).append("<img src=" + image + " width='48' height='48' class='avatar' />");
+          console.log(image);
+        }
+      });
+    });
   </script>
 
   <body>
-     <script id="question-item" type="text/x-handlebars-template">
+    <script id="question-item" type="text/x-handlebars-template">
       <li id="{{id}}">
         <p>{{desc}}</p>
         <a href="/question/{{id}}">help this guy out?</a>
       </li>
     </script>
 
-
     <div class="topBar">
       <div class="header row">
         <h3 class="small-6 large-6 columns"><img src="/assets/images/icon.png" />Learnstream</h3>
-        <a href="#" class="login small-3 large-3 small-offset-3 large-offset-3 columns" data-reveal-id="myModal">Hi, <span class="username"></span></a>
+        <a href="#" class="login small-6 large-6 columns">Hi, <span class="userInfo"></span></a>
       </div>
     </div>
 
