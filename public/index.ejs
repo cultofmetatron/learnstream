@@ -13,22 +13,12 @@
     <link rel="stylesheet" href="/assets/stylesheets/bg.css" />
     <link rel="stylesheet" href="/assets/stylesheets/style.css" />
 
-    <link rel="stylesheet" href="/assets/stylesheets/textboxList.css" />
-    <link rel="stylesheet" href="/assets/stylesheets/textboxListAuto.css" />
-
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.js"></script>
     <script src="/assets/javascripts/vendor/custom.modernizr.js"></script>
     <script src="/assets/javascripts/vendor/underscore.js"></script>
     <script src="/assets/javascripts/vendor/backbone.js"></script>
     <script src="/assets/javascripts/vendor/backbone-firebase.js"></script>
     <script src="/assets/javascripts/singlyauth.js"></script>
-
-    <script src="/assets/javascripts/vendor/textboxlist/mootools-min-121.js"></script>
-    <script src="/assets/javascripts/vendor/textboxlist/growingInput.js"></script>
-    <script src="/assets/javascripts/vendor/textboxlist/textboxList.js"></script>
-    <script src="/assets/javascripts/vendor/textboxlist/textboxListAuto.js"></script>
-    <script src="/assets/javascripts/vendor/textboxlist/textboxListAutoBin.js"></script>
-    <script src="/assets/javascripts/tbListConfig.js"></script>
-
   </head>
   <script>
     var accessToken = '<%= session.accessToken %>';
@@ -36,19 +26,13 @@
   </script>
 
   <body>
-
-    <ul id="auth">
-      <li><%- authorizationLink('facebook', 'Facebook') %></li>
-      <li><%- authorizationLink('github', 'GitHub') %></li>
-      <li><%- authorizationLink('google', 'Google') %></li>
-      <li><%- authorizationLink('twitter', 'Twitter') %></li>
-    </ul>
-
-    <script>
-    document.write('<script src=' +
-    ('__proto__' in {} ? '/assets/javascripts/vendor/zepto' : '/assets/javascripts/vendor/jquery') +
-    '.js><\/script>')
-    </script>
+    <div class="loginLinks small-6 small-centered large-6 large-centered columns">
+      <h3><img src="/assets/images/icon.png" />Learnstream</h3>
+      <h2>Log in</h2>
+      <%- authorizationLink('facebook', '<img class="mediaIcon" src="/assets/images/facebook.png" width="48" height="48" />') %>
+      <%- authorizationLink('github',   '<img class="mediaIcon" src="/assets/images/github.png"   width="48" height="48" />') %>
+      <%- authorizationLink('twitter',  '<img class="mediaIcon" src="/assets/images/twitter.png"  width="48" height="48" />') %>
+    </div>
 
     <script src="/assets/javascripts/foundation.min.js"></script>
     <script>
