@@ -15,7 +15,7 @@ module.exports = function(configs) {
     configs.singly.clientSecret,
     hostBaseUrl, hostBaseUrl + '/callback');
 
-  var fireUrl = 'https://realstateappointments.firebaseIO.com/';
+  var fireUrl = 'https://learnstream-fuu.firebaseio.com/';
   var Firebase = require('firebase');
 
   Models = {

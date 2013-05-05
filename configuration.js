@@ -26,7 +26,6 @@ module.exports = (function() {
     opentok : {
       apikey: '28220612',
       apiSecret: '54148765aa12d6fac5d7cd274a11c085cb7ae6c8'
-
     }
   };
 }).call(this);
