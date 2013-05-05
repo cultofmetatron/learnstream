@@ -8,12 +8,15 @@ var allowCrossDomain = function(req, res, next) {
 };
 
 var isloggedin = function(req, res, next) {
-  if (session.accessToken) {
+  if (req.session.accessToken) {
     next();
   } else {
     res.redirect('/');
   }
 };
+
+
+
 
 
 module.exports = {};
