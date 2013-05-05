@@ -40,13 +40,13 @@
       var questionsView = new QuestionsView({collection: questions});
       questionsView.render();
 
-      // var reloadTasks = function() {
-      //   questions.fetch();
-      //   questionsView.render();
-      //   questionsView.el;
-      //   $('#question-list').append(questionsView.el);
-      // }
-      // setInterval(reloadTasks, 5000);
+      var reloadTasks = function() {
+        questions.fetch();
+        questionsView.render();
+        questionsView.el;
+        $('#question-item').append(questionsView.el);
+      }
+      setInterval(reloadTasks, 5000);
     });
   </script>
 
@@ -59,13 +59,15 @@
     </div>
 
     <div class="content row">
-      <div id="question-list">
+      <div id="question-item">
       </div>
     </div>
 
     <script id="question-item" type="template">
+      <div class="helpRequest">
         <p>{{desc}}</p>
         <a href="/question/{{id}}">help this guy out?</a>
+      </div>
     </script>
 
     <script src="/assets/javascripts/foundation.min.js"></script>

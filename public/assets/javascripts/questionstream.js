@@ -11,7 +11,7 @@
     initialize: function() {
       //initialization code
       if (!this.get('desc')) {
-        this.set({'title': this.defaults().title});
+        this.set({'title':this.defaults().title});
       }
     }
   });
@@ -31,7 +31,7 @@
   $(document).ready(function() {
     window.QuestionView = Backbone.View.extend({
     tagName: 'li',
-    template: Handlebars.compile($('#helpRequest').html().trim()),
+    template: Handlebars.compile($('#question-item').html().trim()),
     events: {
       },
 
@@ -70,8 +70,8 @@
       //questions.fetch();
       questions.fetch();
       questionsView.render();
-      console.log( $('#helpRequest'));
-      $('#helpRequest').append(questionsView.el);
+      console.log( $('#question-item'));
+      $('#question-item').append(questionsView.el);
       setInterval(reloadTasks, 5000);
     };
     reloadTasks();
