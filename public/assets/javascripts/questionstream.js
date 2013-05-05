@@ -11,8 +11,7 @@
     initialize: function() {
       //initialization code
       if (!this.get('desc')) {
-        // this.set({'title':this.defaults().title});
-        this.set({'title', this.defaults().title});
+        this.set({'title': this.defaults().title});
       }
     }
   });
