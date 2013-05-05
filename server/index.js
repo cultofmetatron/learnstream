@@ -5,12 +5,15 @@ var querystring = require('querystring');
 var Q = require('q');
 var everyauth = require('everyauth');
 var helpers = require('./helpers');
-
+var OpenTok = require('opentok');
 var __ = require('underscore');
 
 
 
 module.exports = function(configs) {
+  //the opentok module
+  var openTok = new OpenTok.OpenTokSDK(configs.opentok.apikey, configs.opentok.apiSecret);
+
   var hostBaseUrl = 'http://localhost:3000';
   var app = express();
   everyauth.debug = true;
@@ -41,9 +44,7 @@ module.exports = function(configs) {
   app.use(everyauth.middleware(app));
   app.use(helpers.allowCrossDomain); //fixes cors bullshit
   app.use(function(req, res, next) {
-    if (req.session.accessToken ) {
-      req.session.firebaseUrl = fireUrl;
-    }
+    if (req.session.accessToken ) { req.session.firebaseUrl = fireUrl; }
     next();
   });
   app.use(express.static(path.join(configs.rootDir, 'public')));

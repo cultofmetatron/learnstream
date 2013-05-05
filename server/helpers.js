@@ -15,6 +15,15 @@ var isloggedin = function(req, res, next) {
   }
 };
 
+var initOpenTok = function(req, res, next) {
+  if (req.session.accessToken) {
+
+
+  }
+  next();
+
+};
+
 
 
 

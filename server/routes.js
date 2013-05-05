@@ -9,8 +9,18 @@ module.exports = function(app) {
     });
 
   });
+  /* user gets a list of all outstanding questions */
+  app.get('/question/:id', helpers.isLoggedIn, function(req, res) {
 
-  app.get('/room/:id', helpers.isLoggedIn, function(req, res) {
+
+  });
+  /* user posts a question and gets redirected to /question/:id */
+  app.post('/question', helpers.isLoggedIn, function(req, res) {
+
+
+  });
+
+  app.get('/questions', helpers.isLoggedIn, function(req, res) {
 
 
   });
