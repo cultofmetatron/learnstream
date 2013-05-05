@@ -1,5 +1,5 @@
 var helpers = require('./helpers');
-module.exports = function(app) {
+module.exports = function(app, Models, openTok) {
   /* place routes here */
 
   app.get('/dashboard', helpers.isLoggedIn ,function(req, res) {
@@ -11,13 +11,25 @@ module.exports = function(app) {
   /* user gets a list of all outstanding questions */
   app.get('/question/:id', helpers.isLoggedIn, function(req, res) {
    var questionId = req.params.id;
-
+   res.render('question', {
+     id: req.params.id
+   });
   });
   /* user posts a question and gets redirected to /question/:id */
   app.post('/question', helpers.isLoggedIn, function(req, res) {
     var tags = req.body.tags.split(',');
     var desc = req.body.desc;
-    // create a room
+    var location = '127.0.0.1';
+    openTok.createSession(location, function(result) {
+      var question = Models.Question.createQuestion({
+      profile_id: req.profile.id,
+      desc      : desc,
+      tags      : tags,
+      openTok_sess : result
+      });
+    });
+        // create a room
+
 
 
     res.redirect('/dashboard');
@@ -25,15 +37,21 @@ module.exports = function(app) {
   });
 
   app.get('/questions', helpers.isLoggedIn, function(req, res) {
-
+    res.render('questions', {
+      session: req.session
+    });
 
   });
 
 
   app.get('/', function(req, res) {
-    res.render('index', {
-      session: req.session
-    });
+    if (req.session.accessToken) {
+      res.redirect('/dashboard');
+    } else {
+      res.render('index', {
+        session: req.session
+      });
+    }
   });
 
   return app;
