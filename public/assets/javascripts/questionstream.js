@@ -28,7 +28,7 @@
     firebase: new Firebase('https://learnstream-fuu.firebaseio.com/questions')
   });
 
-  $(function() {
+  $(document).ready(function() {
     window.QuestionView = Backbone.View.extend({
     tagName: 'li',
     template: Handlebars.compile($('#question-item').html().trim()),
@@ -61,7 +61,7 @@
     });
 
 
-    var questions = new Questions();
+   var questions = new Questions();
     window.questionsView = new QuestionsView({collection: questions });
     questionsView.render();
 
@@ -69,9 +69,20 @@
       //questions.fetch();
       questions.fetch();
       questionsView.render();
+      console.log( $('#question-list'));
       $('#question-list').append(questionsView.el);
       setInterval(reloadTasks, 5000);
     };
+    reloadTasks();
+
+
 
   });
+
+
+
+
+
+
 }).call(this);
+
