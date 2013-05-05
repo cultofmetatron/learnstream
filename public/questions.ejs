@@ -12,15 +12,7 @@
     <link rel="stylesheet" href="/assets/stylesheets/bg.css" />
     <link rel="stylesheet" href="/assets/stylesheets/style.css" />
 
-    <link rel="stylesheet" href="/assets/stylesheets/textboxList.css" />
-    <link rel="stylesheet" href="/assets/stylesheets/textboxListAuto.css" />
     <script type="text/javascript" src="/assets/javascripts/vendor/jquery.js"></script>
-    <script>
-      // document.write('<script src=' +
-      // ('__proto__' in {} ? '/assets/javascripts/vendor/zepto' : '/assets/javascripts/vendor/jquery') +
-      // '.js><\/script>')
-    </script>
-
     <script src="/assets/javascripts/vendor/custom.modernizr.js"></script>
     <script src="/assets/javascripts/vendor/handlebars.js"></script>
     <script src='https://cdn.firebase.com/v0/firebase.js'></script>
@@ -29,29 +21,26 @@
     <script src="/assets/javascripts/vendor/backbone-firebase.js"></script>
     <script src="/assets/javascripts/questionstream.js"></script>
     <script src="/assets/javascripts/singlyauth.js"></script>
-
-    <script src="/assets/javascripts/vendor/textboxlist/growingInput.js"></script>
-    <script src="/assets/javascripts/vendor/textboxlist/textboxList.js"></script>
-    <script src="/assets/javascripts/vendor/textboxlist/textboxListAuto.js"></script>
-    <script src="/assets/javascripts/vendor/textboxlist/textboxListAutoBin.js"></script>
-    <script src="/assets/javascripts/tbListConfig.js"></script>
-
   </head>
   <script>
     var accessToken = '<%= session.accessToken %>';
     var firebaseUrl = '<%= session.fireBase %>';
+    var githubReqUrl =  'https://api.singly.com/services/github/self?access_token=' + accessToken;
     $(function() {
+      $.ajax({
+        url: githubReqUrl,
+        success: function(data) {
+          var userName = data['0']['data']['name'];
+          var image = data['0']['data']['avatar_url'];
+          $('.userInfo').text(userName).append("<img src=" + image + " width='42' height='42' class='avatar' />");
+        }
+      });
+
       var questions = new Questions();
-      var questionsView = new QuestionsView({collection: questions });
+      var questionsView = new QuestionsView({collection: questions});
       questionsView.render();
 
-      var reloadTasks = function() {
-        questions.fetch();
-        questionsView.render();
-        questionsView.el;
-        $('#question-list').append(questionsView.el);
-      }
-      setInterval(reloadTasks, 1000);
+
     });
   </script>
 
@@ -59,12 +48,13 @@
     <div class="topBar">
       <div class="header row">
         <h3 class="small-6 large-6 columns"><img src="/assets/images/icon.png" />Learnstream</h3>
-        <a href="#" class="login small-3 large-3 small-offset-3 large-offset-3 columns" data-reveal-id="myModal">Login</a>
+        <a href="#" class="login small-6 large-6 columns"><span class="userInfo"></span></a>
       </div>
     </div>
 
     <div class="content row">
-      <div id="question-list"></div>
+      <div id="question-list">
+      </div>
     </div>
 
     <script id="question-item" type="template">
@@ -72,35 +62,10 @@
         <a href="/question/{{id}}">help this guy out?</a>
     </script>
 
-      <div class="hereToHelp small-5 large-5 small-offset-2 large-offset-2 columns">
-        <h2>Here to help?</h2>
-        <form>
-          <h5>Set a list of tags to listen for:</h5>
-          <br /><input name="tags" required type="text" id="helpTagsMentor" />
-          <!-- placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" -->
-          <!-- <p class="littleNote">*Relevant tags (seperate with 'return')</p> -->
-          <br /><input type="submit" value="Mentor Someone" class="small success button" />
-        </form>
-      </div>
-    </div>
-
     <script src="/assets/javascripts/foundation.min.js"></script>
-    <script src="/assets/javascripts/foundation/foundation.dropdown.js"></script>
-    <script src="/assets/javascripts/foundation/foundation.reveal.js"></script>
     <script>
       $(document).foundation();
     </script>
-
-    <div id="myModal" class="reveal-modal">
-      <ul id="auth">
-        <a href="<%- authorizationLink('github', 'GitHub')%>"><img src="/assets/images/github.png" width="48" height="48" /></a>
-        <li><%- authorizationLink('facebook', 'Facebook')%></li>
-        <li><%- authorizationLink('github',   'GitHub'  )%></li>
-        <!-- <li><%- authorizationLink('google',   'Google'  )%></li> -->
-        <!-- <li><%- authorizationLink('twitter',  'Twitter' )%></li> -->
-      </ul>
-      <a class="close-reveal-modal">&#215;</a>
-    </div>
   </body>
 </html>
 

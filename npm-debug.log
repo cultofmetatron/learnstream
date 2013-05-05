@@ -4,13 +4,13 @@
 1 verbose cli   'start' ]
 2 info using npm@1.2.18
 3 info using node@v0.10.4
-4 verbose read json /Users/Cultofmetatron/projects/hackstackv2/package.json
+4 verbose read json /Users/Cultofmetatron/projects/learnstream/package.json
 5 verbose run-script [ 'prestart', 'start', 'poststart' ]
 6 info prestart hackstack@0.0.1
 7 info start hackstack@0.0.1
 8 verbose unsafe-perm in lifecycle true
 9 silly exec sh "-c" "node index.js"
-10 silly sh,-c,node index.js,/Users/Cultofmetatron/projects/hackstackv2 spawning
+10 silly sh,-c,node index.js,/Users/Cultofmetatron/projects/learnstream spawning
 11 info hackstack@0.0.1 Failed to exec start script
 12 error hackstack@0.0.1 start: `node index.js`
 12 error `sh "-c" "node index.js"` failed with 8
@@ -24,7 +24,7 @@
 13 error There is likely additional logging output above.
 14 error System Darwin 11.4.2
 15 error command "/usr/local/Cellar/node/0.10.4/bin/node" "/usr/local/bin/npm" "start"
-16 error cwd /Users/Cultofmetatron/projects/hackstackv2
+16 error cwd /Users/Cultofmetatron/projects/learnstream
 17 error node -v v0.10.4
 18 error npm -v 1.2.18
 19 error code ELIFECYCLE
