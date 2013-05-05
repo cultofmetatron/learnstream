@@ -1,2 +1,99 @@
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" ><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Learnstream</title>
+    <link id="favicon" rel="icon" type="image/png" href="/assets/images/favicon.png" />
+    <link rel="stylesheet" href="/assets/stylesheets/fontfaces.css" />
+    <link rel="stylesheet" href="/assets/stylesheets/normalize.css" />
+    <link rel="stylesheet" href="/assets/stylesheets/foundation.css" />
+    <link rel="stylesheet" href="/assets/stylesheets/bg.css" />
+    <link rel="stylesheet" href="/assets/stylesheets/style.css" />
 
+    <link rel="stylesheet" href="/assets/stylesheets/textboxList.css" />
+    <link rel="stylesheet" href="/assets/stylesheets/textboxListAuto.css" />
+    <script type="text/javascript" src="/assets/javascripts/vendor/jquery.js"></script>
+    <script>
+      // document.write('<script src=' +
+      // ('__proto__' in {} ? '/assets/javascripts/vendor/zepto' : '/assets/javascripts/vendor/jquery') +
+      // '.js><\/script>')
+    </script>
+
+    <script src="/assets/javascripts/vendor/custom.modernizr.js"></script>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src="/assets/javascripts/vendor/underscore.js"></script>
+    <script src="/assets/javascripts/vendor/backbone.js"></script>
+    <script src="/assets/javascripts/vendor/backbone-firebase.js"></script>
+    <script src="/assets/javascripts/questionstream.js"></script>
+    <script src="/assets/javascripts/singlyauth.js"></script>
+
+    <script src="/assets/javascripts/vendor/textboxlist/growingInput.js"></script>
+    <script src="/assets/javascripts/vendor/textboxlist/textboxList.js"></script>
+    <script src="/assets/javascripts/vendor/textboxlist/textboxListAuto.js"></script>
+    <script src="/assets/javascripts/vendor/textboxlist/textboxListAutoBin.js"></script>
+    <script src="/assets/javascripts/tbListConfig.js"></script>
+
+  </head>
+  <script>
+    var accessToken = '<%= session.accessToken %>';
+    var firebaseUrl = '<%= session.fireBase %>';
+
+
+
+
+
+  </script>
+
+  <body>
+    <div class="topBar">
+      <div class="header row">
+        <h3 class="small-6 large-6 columns"><img src="/assets/images/icon.png" />Learnstream</h3>
+        <a href="#" class="login small-3 large-3 small-offset-3 large-offset-3 columns" data-reveal-id="myModal">Login</a>
+      </div>
+    </div>
+
+    <div class="content row">
+      <ul id="question-list"></ul>
+    </div>
+
+    <script id="question-item" type="template">
+      <li id="{{id}}">
+        <p>{{desc}}</p>
+        <a href="/question/{{id}}">help this guy out?</a>
+      </li>
+    </script>
+
+      <div class="hereToHelp small-5 large-5 small-offset-2 large-offset-2 columns">
+        <h2>Here to help?</h2>
+        <form>
+          <h5>Set a list of tags to listen for:</h5>
+          <br /><input name="tags" required type="text" id="helpTagsMentor" />
+          <!-- placeholder="Relevant tags (e.g., jQuery, Ruby, algorithms)" -->
+          <!-- <p class="littleNote">*Relevant tags (seperate with 'return')</p> -->
+          <br /><input type="submit" value="Mentor Someone" class="small success button" />
+        </form>
+      </div>
+    </div>
+
+    <script src="/assets/javascripts/foundation.min.js"></script>
+    <script src="/assets/javascripts/foundation/foundation.dropdown.js"></script>
+    <script src="/assets/javascripts/foundation/foundation.reveal.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+    <div id="myModal" class="reveal-modal">
+      <ul id="auth">
+        <a href="<%- authorizationLink('github', 'GitHub')%>"><img src="/assets/images/github.png" width="48" height="48" /></a>
+        <li><%- authorizationLink('facebook', 'Facebook')%></li>
+        <li><%- authorizationLink('github',   'GitHub'  )%></li>
+        <!-- <li><%- authorizationLink('google',   'Google'  )%></li> -->
+        <!-- <li><%- authorizationLink('twitter',  'Twitter' )%></li> -->
+      </ul>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+  </body>
+</html>
 
