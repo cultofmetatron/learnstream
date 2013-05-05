@@ -31,7 +31,6 @@ module.exports = function(configs) {
     Question : require('./models/question.js')(new Firebase(fireUrl + 'question'))
   };
 
-  Models.Root.set('learnstream');
 
   app.set('port', process.env.PORT || 3000);
   app.set('views', path.join(configs.rootDir, 'public'));
