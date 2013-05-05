@@ -22,6 +22,11 @@ module.exports = (function() {
     singly : {
       clientId     : "663851f217fe79259e19bf3b1f8bc164",
       clientSecret : "bb4973ed7df05fbd524de9fef1b6a5eb"
+    },
+    opentok : {
+      apikey: '28220612',
+      apiSecret: '54148765aa12d6fac5d7cd274a11c085cb7ae6c8'
+
     }
   };
 }).call(this);
