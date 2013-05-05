@@ -1,3 +1,5 @@
+
+//takes care of cors bullshit
 var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -5,5 +7,15 @@ var allowCrossDomain = function(req, res, next) {
   next();
 };
 
+var isloggedin = function(req, res, next) {
+  if (session.accessToken) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+};
+
+
 module.exports = {};
 module.exports.allowCrossDomain = allowCrossDomain;
+module.exports.isLoggedIn = isloggedin;

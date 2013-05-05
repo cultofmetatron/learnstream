@@ -1,7 +1,7 @@
 module.exports = function(app) {
   /* place routes here */
 
-  app.get('/', function(req, res) {
+  app.get('/dashboard', function(req, res) {
     console.log(req.session);
     res.render('index', {
       session: req.session
