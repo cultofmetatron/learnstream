@@ -7,7 +7,7 @@ var allowCrossDomain = function(req, res, next) {
   next();
 };
 
-var isloggedin = function(req, res, next) {
+var isLoggedIn = function(req, res, next) {
   if (req.session.accessToken) {
     next();
   } else {
@@ -17,7 +17,7 @@ var isloggedin = function(req, res, next) {
 
 var initOpenTok = function(req, res, next) {
   if (req.session.accessToken) {
-
+    //initialize opentalk object
 
   }
   next();
@@ -30,4 +30,4 @@ var initOpenTok = function(req, res, next) {
 
 module.exports = {};
 module.exports.allowCrossDomain = allowCrossDomain;
-module.exports.isLoggedIn = isloggedin;
+module.exports.isLoggedIn = isLoggedIn;

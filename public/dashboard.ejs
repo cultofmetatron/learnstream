@@ -23,9 +23,13 @@
     </script>
 
     <script src="/assets/javascripts/vendor/custom.modernizr.js"></script>
+    <script src="/assets/javascripts/vendor/handlebars.js"></script>
+
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     <script src="/assets/javascripts/vendor/underscore.js"></script>
     <script src="/assets/javascripts/vendor/backbone.js"></script>
     <script src="/assets/javascripts/vendor/backbone-firebase.js"></script>
+    <script src="/assets/javascripts/questionstream.js"></script>
     <script src="/assets/javascripts/singlyauth.js"></script>
 
     <script src="/assets/javascripts/vendor/textboxlist/growingInput.js"></script>
@@ -41,6 +45,14 @@
   </script>
 
   <body>
+     <script id="question-item" type="text/x-handlebars-template">
+      <li id="{{id}}">
+        <p>{{desc}}</p>
+        <a href="/question/{{id}}">help this guy out?</a>
+      </li>
+    </script>
+
+
     <div class="topBar">
       <div class="header row">
         <h3 class="small-6 large-6 columns"><img src="/assets/images/icon.png" />Learnstream</h3>
