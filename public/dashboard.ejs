@@ -47,10 +47,10 @@
       $.ajax({
         url: githubReqUrl,
         success: function(data) {
-          var userName = data['0']['data']['name'];
+          var userName = data['0']['data']['name'].split(' ')[0];
           var image = data['0']['data']['avatar_url'];
-          $('.userInfo').text(userName).append("<img src=" + image + " width='48' height='48' class='avatar' />");
-          console.log(image);
+          $('.userInfo').text(userName + '.').append("<img src=" + image + " width='48' height='48' class='avatar' />");
+          console.log(userName);
         }
       });
     });
