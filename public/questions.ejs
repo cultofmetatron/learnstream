@@ -22,6 +22,7 @@
     </script>
 
     <script src="/assets/javascripts/vendor/custom.modernizr.js"></script>
+    <script src="/assets/javascripts/vendor/handlebars.js"></script>
     <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     <script src="/assets/javascripts/vendor/underscore.js"></script>
     <script src="/assets/javascripts/vendor/backbone.js"></script>
@@ -39,11 +40,19 @@
   <script>
     var accessToken = '<%= session.accessToken %>';
     var firebaseUrl = '<%= session.fireBase %>';
+    $(function() {
+      var questions = new Questions();
+      var questionsView = new QuestionsView({collection: questions });
+      questionsView.render();
 
-
-
-
-
+      var reloadTasks = function() {
+        questions.fetch();
+        questionsView.render();
+        questionsView.el;
+        $('#question-list').append(questionsView.el);
+      }
+      setInterval(reloadTasks, 1000);
+    });
   </script>
 
   <body>
@@ -55,14 +64,12 @@
     </div>
 
     <div class="content row">
-      <ul id="question-list"></ul>
+      <div id="question-list"></div>
     </div>
 
     <script id="question-item" type="template">
-      <li id="{{id}}">
         <p>{{desc}}</p>
         <a href="/question/{{id}}">help this guy out?</a>
-      </li>
     </script>
 
       <div class="hereToHelp small-5 large-5 small-offset-2 large-offset-2 columns">

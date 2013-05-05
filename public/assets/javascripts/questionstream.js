@@ -31,11 +31,12 @@
 
   window.Questions = Backbone.Firebase.Collection.extend({
     model: Question,
-    firebase: new Firebase('https://learnstream-fuu.firebaseio.com/')
+    firebase: new Firebase('https://learnstream-fuu.firebaseio.com/questions')
   });
 
   $(function() {
     window.QuestionView = Backbone.View.extend({
+    tagName: 'li',
     template: Handlebars.compile($('#question-item').html().trim()),
     events: {
 
@@ -46,15 +47,41 @@
       this.listenTo(this.model, 'remove', this.remove);
     },
     render: function() {
-      this.$el.html(this.template(this.model.toJSON()));
+      this.$el.attr('id', this.model.id);
+      return this.$el.html(this.template(this.model.toJSON()));
     }
 
 
   });
-});
 
+  window.QuestionsView = Backbone.View.extend({
+    tagName: 'ul',
+    collection: Questions,
+    render: function() {
+      var html = [];
+      $(this.collection.each(function(question) {
+        var questionView = new QuestionView({
+          model: question
+        });
+        questionView.render();
+        html.push(questionView.el);
+      }));
+      this.$el.html(html);
+    }
+  });
 
+  var questions = new Questions();
+  window.questionsView = new QuestionsView({collection: questions });
+  questionsView.render();
 
+  var reloadTasks = function() {
+    //questions.fetch();
+    questions.fetch();
+    questionsView.render();
+    $('#question-list').append(questionsView.el);
+
+  setInterval(reloadTasks, 5000);
+ });
 
 }).call(this);
 
