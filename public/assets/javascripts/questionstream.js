@@ -4,14 +4,15 @@
   window.Question = Backbone.Model.extend({
     defaults: function() {
       return {
-        desc: "Just teach me something... The readbull is too strong and all hear are the spheres of valhala"
+        desc: 'Teach me something!'
         //solved: false
       };
     },
     initialize: function() {
       //initialization code
       if (!this.get('desc')) {
-        this.set({'title':this.defaults().title });
+        // this.set({'title':this.defaults().title});
+        this.set({'title', this.defaults().title});
       }
     }
   });
@@ -31,18 +32,20 @@
   $(document).ready(function() {
     window.QuestionView = Backbone.View.extend({
     tagName: 'li',
-    template: Handlebars.compile($('#question-item').html().trim()),
+    template: Handlebars.compile($('#helpRequest').html().trim()),
     events: {
       },
+
     initialize: function() {
       this.listenTo(this.model, 'change', this.render);
       this.listenTo(this.model, 'remove', this.remove);
       },
+
     render: function() {
       this.$el.attr('id', this.model.id);
       return this.$el.html(this.template(this.model.toJSON()));
-      }
-    });
+    }
+  });
 
     window.QuestionsView = Backbone.View.extend({
       tagName: 'ul',
@@ -60,29 +63,18 @@
       }
     });
 
+    var questions = new Questions();
+      window.questionsView = new QuestionsView({collection: questions});
+      questionsView.render();
 
-   var questions = new Questions();
-    window.questionsView = new QuestionsView({collection: questions });
-    questionsView.render();
-
-    var reloadTasks = function() {
+      var reloadTasks = function() {
       //questions.fetch();
       questions.fetch();
       questionsView.render();
-      console.log( $('#question-list'));
-      $('#question-list').append(questionsView.el);
+      console.log( $('#helpRequest'));
+      $('#helpRequest').append(questionsView.el);
       setInterval(reloadTasks, 5000);
     };
     reloadTasks();
-
-
-
   });
-
-
-
-
-
-
 }).call(this);
-
