@@ -17,7 +17,7 @@ module.exports = function(app) {
   app.post('/question', helpers.isLoggedIn, function(req, res) {
     var tags = req.body.tags.split(',');
     var desc = req.body.desc;
-    //create a room
+    // create a room
 
 
     res.redirect('/dashboard');

@@ -8,10 +8,8 @@ var helpers = require('./helpers');
 var OpenTok = require('opentok');
 var __ = require('underscore');
 
-
-
 module.exports = function(configs) {
-  //the opentok module
+  // OpenTok module
   var openTok = new OpenTok.OpenTokSDK(configs.opentok.apikey, configs.opentok.apiSecret);
 
   var hostBaseUrl = 'http://localhost:3000';
@@ -42,11 +40,12 @@ module.exports = function(configs) {
   app.use(express.session());
   app.use(express.methodOverride());
   app.use(everyauth.middleware(app));
-  app.use(helpers.allowCrossDomain); //fixes cors bullshit
+  app.use(helpers.allowCrossDomain); // Fix CORS' bullshit
   app.use(function(req, res, next) {
     if (req.session.accessToken ) { req.session.firebaseUrl = fireUrl; }
     next();
   });
+
   app.use(express.static(path.join(configs.rootDir, 'public')));
   expressSingly.configuration();
   app.use(app.router);

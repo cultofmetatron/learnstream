@@ -4,11 +4,11 @@
   text-align: left;
 }
 
-.header h3 {
+.header h3, .loginLinks h3 {
   letter-spacing: 3px;
 }
 
-.header img {
+.header img, .loginLinks img {
   margin-right: 0.4em;
   position: relative;
   top: 0.2em;
@@ -20,13 +20,17 @@
   margin: 0 auto;
 }
 
-.needHelp, .hereToHelp {
+.loginLinks, .needHelp, .hereToHelp {
   background-color: rgba(10, 10, 10, 0.5);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin-top: 2em;
   text-align: center;
+}
+
+.loginLinks {
+  padding: 1em 0;
 }
 
 input {
@@ -49,6 +53,20 @@ input {
 
 #helpTags, #helpTagsMentor {
   margin-bottom: 0;
+}
+
+.login {
+  text-align: right;
+  line-height: 3.5;
+  margin: 0.3em 0;
+}
+
+span.check {
+  display: none;
+}
+
+.mediaIcon {
+  margin: 0 1em;
 }
 
 /* Code Session */
