@@ -26,7 +26,9 @@ module.exports = function(app, Models, openTok, fireUrl, configs) {
             TokSession: ref.val().openTok_sess,
             session : req.session,
             profile_id : ref.val().profile_id,
-            opentok_key : configs.opentok.apikey
+            opentok_key : configs.opentok.apikey,
+            desc : ref.val().desc,
+            tags : ref.val().tags
           });
     });
 
