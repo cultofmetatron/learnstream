@@ -6,11 +6,11 @@ Script: TextboxList.Autocomplete.Binary.js
 		Guillermo Rauch
 	
 	Note:
-		TextboxList is not priceless for commercial use. See <http://devthought.com/projects/mootools/textboxlist/>
+		TextboxList is not priceless for commercial use. See <http://devthought.com/projects/jquery/textboxlist/>
 		Purchase to remove this message.
 */
 
-TextboxList.Autocomplete.Methods.binary = {
+$.TextboxList.Autocomplete.Methods.binary = {
 	filter: function(values, search, insensitive, max){
 		var method = insensitive ? 'toLowerCase' : 'toString', low = 0, high = values.length - 1, lastTry;
 		search = search[method]();
@@ -21,7 +21,7 @@ TextboxList.Autocomplete.Methods.binary = {
 			if (result < 0) { high = mid - 1; continue; }
 			if (result > 0) { low = mid + 1; continue; }
 			if (result === 0) break;
-		}		
+		}				
 		if (high < low) return [];
 		var newvalues = [values[mid]], checkNext = true, checkPrev = true, v1, v2;
 		for (var i = 1; i <= values.length - mid; i++){			
@@ -37,8 +37,8 @@ TextboxList.Autocomplete.Methods.binary = {
 	},
 	
 	highlight: function(element, search, insensitive, klass){
-		var regex = new RegExp('(<[^>]*>)|(\\b'+ search.escapeRegExp() +')', insensitive ? 'ig' : 'g');
-		return element.set('html', element.get('html').replace(regex, function(a, b, c, d){
+		var regex = new RegExp('(<[^>]*>)|(\\b'+ search.replace(/([-.*+?^${}()|[\]\/\\])/g,"\\$1") +')', insensitive ? 'ig' : 'g');
+		return element.html(element.html().replace(regex, function(a, b, c, d){
 			return (a.charAt(0) == '<') ? a : '<strong class="'+ klass +'">' + c + '</strong>'; 
 		}));
 	}
