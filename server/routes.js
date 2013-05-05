@@ -22,38 +22,21 @@ module.exports = function(app, Models, openTok, fireUrl, configs) {
       connection_data: '/question/' + newQuestion.name()
     });
     res.render('question', {
-      id: question.name(),
-      TokSession: ref.val().openTok_sess,
-      session : req.session,
-      profile_id : ref.val().profile_id,
+      id          : question.name(),
+      TokSession  : ref.val().openTok_sess,
+      session     : req.session,
+      profile_id  : ref.val().profile_id,
       opentok_key : configs.opentok.apikey
     });
   });
 
+});
 
   app.post('/question', helpers.isLoggedIn, function(req, res) {
     var tags = req.body.tags.split(',');
     var desc = req.body.desc;
     var location = '127.0.0.1';
     openTok.createSession(location, {'p2p.preference':'enabled'}, function(result) {
-
-// <<<<<<< HEAD
-//       var question = Models.Question.createQuestion({
-//         profile_id   : req.profile.id,
-//         desc         : desc,
-//         tags         : tags,
-//         openTok_sess : result
-//       });
-//       req.session.tokToken = opentok.generateToken({
-//         session_id: result,
-//         role: OpenTok.RoleConstants.PUBLISHER,
-//         connection_data: '/question/' + question
-//       });
-//       res.redirect('/question/' + question)
-//     });
-//     // Create a room.
-//     res.redirect('/dashboard');
-// =======
       fireRef = new Firebase(fireUrl + '/questions/');
       newQuestion = fireRef.push();
       newQuestion.set({
@@ -65,9 +48,6 @@ module.exports = function(app, Models, openTok, fireUrl, configs) {
       });
       res.redirect('/question/' + newQuestion.name());
     });
-    // create a room
-    //res.redirect('/dashboard');
-// >>>>>>> 3a9e720e02f4ada39b34cd478c89893f75c5870e
   });
 
 
@@ -88,4 +68,5 @@ module.exports = function(app, Models, openTok, fireUrl, configs) {
     }
   });
   return app;
+
 };
