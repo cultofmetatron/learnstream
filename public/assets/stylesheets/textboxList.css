@@ -34,6 +34,12 @@
   font: 11px "Lucida Grande", Verdana;
 }
 
+input.textboxlist-bit-editable-input {
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 .textboxlist-bit-editable-input:focus {
   outline: 0;
 }
@@ -62,7 +68,7 @@
   width: 7px;
   height: 7px;
   font-size: 1px;
-  background: url('close.gif');
+  background: url('../images/close.gif');
 }
 
 .textboxlist-bit-box-deletebutton:hover {
@@ -72,16 +78,16 @@
 }
 
 .textboxlist-bit-box-hover {
-  background: #bbcef1;
-  border: 1px solid #6d95e0;
+  background: #4173d2;
+  border: 1px solid #444;
 }
 
 .textboxlist-bit-box-focus {
-  border-color: #598bec;
-  background: #598bec;
+  border-color: #444;
+  background: #4173d2;
   color: #fff;
 }
 
 .textboxlist-bit-box-focus .textboxlist-bit-box-deletebutton {
-  background-position: bottom;
+  background-position: right;
 }
