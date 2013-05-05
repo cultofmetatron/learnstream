@@ -3,7 +3,7 @@ var Firebase = require('firebase');
 module.exports = function(app, Models, openTok, fireUrl) {
   /* place routes here */
 
-  app.get('/dashboard', helpers.isLoggedIn ,function(req, res) {
+  app.get('/dashboard', helpers.isLoggedIn, function(req, res) {
     console.log(req.session);
     res.render('dashboard', {
       session: req.session
