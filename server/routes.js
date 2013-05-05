@@ -1,5 +1,6 @@
 var helpers = require('./helpers');
-module.exports = function(app, Models, openTok) {
+var Firebase = require('firebase');
+module.exports = function(app, Models, openTok, fireUrl) {
   /* place routes here */
 
   app.get('/dashboard', helpers.isLoggedIn ,function(req, res) {
@@ -21,12 +22,20 @@ module.exports = function(app, Models, openTok) {
     var desc = req.body.desc;
     var location = '127.0.0.1';
     openTok.createSession(location, {'p2p.preference':'enabled'}, function(result) {
+
+
       var question = Models.Question.createQuestion({
       profile_id: req.profile.id,
       desc         : desc,
       tags         : tags,
-      openTok_sess : result
+      openTok_sess : result,
       });
+      req.session.tokToken = opentok.generateToken({
+        session_id:result,
+        role:OpenTok.RoleConstants.PUBLISHER,
+        connection_data:"/question/" + question.});
+      res.redirect('/question/' + )
+
     });
     // create a room
     res.redirect('/dashboard');
