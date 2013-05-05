@@ -20,7 +20,7 @@ module.exports = function(app, Models, openTok) {
     var tags = req.body.tags.split(',');
     var desc = req.body.desc;
     var location = '127.0.0.1';
-    openTok.createSession(location, function(result) {
+    openTok.createSession(location, {'p2p.preference':'enabled'}, function(result) {
       var question = Models.Question.createQuestion({
       profile_id: req.profile.id,
       desc      : desc,
